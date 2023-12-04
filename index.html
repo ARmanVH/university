@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./public/style.css" rel="stylesheet" />
+  <title>University</title>
+</head>
+<script src="/main.js" defer></script>
+
+<body class="light" dir="rtl">
+  <div class="w-full max-w-lg p-4 mx-auto mt-10 bg-white rounded-2xl shadow-md dark:bg-gray-800">
+    <div class="w-full flex justify-between">
+      <h2 class="text-3xl pb-5"> افزودن درس</h2>
+      <a href="./student.html">صفحه دانشجو</a>
+    </div>
+    <form class="space-y-4" onsubmit="onSubmitHandler(event)">
+      <div class="space-y-2"><label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="lesson-code">کد درس</label><input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="lesson-code" /></div>
+      <div class="space-y-2"><label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="lesson-name">نام درس</label><input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="lesson-name" /></div>
+      <fieldset class="space-y-2">
+        <legend class="text-lg font-medium">نوع درس</legend>
+        <div class="flex items-center"><input
+            class="lesson-type flex rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-3 w-3"
+            id="public" type="radio" name="type" checked /><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-2"
+            for="input4-1">عمومی</label></div>
+        <div class="flex items-center"><input
+            class="lesson-type flex rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-3 w-3"
+            id="exclusive" type="radio" name="type" /><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-2"
+            for="input4-2">اختصاصی</label></div>
+        <div class="flex items-center"><input
+            class="lesson-type flex rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-3 w-3"
+            id="choice" type="radio" name="type" /><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-2"
+            for="input4-3">اختیاری</label></div>
+      </fieldset>
+      <div class="space-y-2"><label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="unit-num">تعداد واحد</label><input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="unit-num" type="number" /></div>
+      <fieldset class="space-y-2">
+        <legend class="text-lg font-medium">پیشنیاز</legend>
+        <div class="flex items-center"><input
+            class="prerequisite flex rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-3 w-3"
+            id="true" type="radio" name="prerequisite" /><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-2"
+            for="input5-1">دارد</label></div>
+        <div class="flex items-center"><input
+            class="prerequisite flex rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-3 w-3"
+            id="false" type="radio" name="prerequisite" checked /><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-2"
+            for="input5-2">ندارد</label></div>
+        <button
+          class="inline-flex items-center justify-center shadow-md rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 px-4 py-2 hover:bg-blue-500 transition-colors dark:hover:bg-blue-700"
+          type="submit">
+          تایید
+        </button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>
